@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect # type: ignore
 from .models import Project, Client, Contact, Subscriber
 
 def landing_page(request):

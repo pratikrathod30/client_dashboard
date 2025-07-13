@@ -1,4 +1,4 @@
-/* Font & Base */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 
@@ -10,21 +10,14 @@ body {
   color: #333;
 }
 
-/* Global Headings */
+
 h2 {
   border-bottom: 2px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 25px;
   font-weight: 600;
 }
-/* 
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-} */
-/* Section Styling (Except Hero) */
+
 section:not(.hero-banner) {
   padding: 40px 20px;
   margin: 40px auto;
@@ -34,7 +27,6 @@ section:not(.hero-banner) {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Hero Banner */
 .hero-banner {
   height: 100vh;
   background: url('../main/images/main.jpg') no-repeat center center;
@@ -80,7 +72,7 @@ section:not(.hero-banner) {
   }
 }
 
-/* Project & Client Cards */
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -185,8 +177,6 @@ body::-webkit-scrollbar {
   margin-top: 10px;
 }
 
-
-/* Client Cards - Static Layout */
 .client-card {
   background: #ffffff;
   border-radius: 12px;
@@ -211,7 +201,8 @@ body::-webkit-scrollbar {
   font-size: 0.9rem;
   color: #4b5563;
   margin-top: 10px;
-}/* Stylish Section Headings */
+}
+
 .section-heading {
   margin: 60px 0 30px;
   text-align: center;
@@ -221,7 +212,7 @@ body::-webkit-scrollbar {
   font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #9ca3af; /* muted gray */
+  color: #9ca3af;
   font-weight: 600;
   margin-bottom: 8px;
   font-family: 'Poppins', sans-serif;
