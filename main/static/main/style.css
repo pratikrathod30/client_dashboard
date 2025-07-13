@@ -1,0 +1,298 @@
+/* Font & Base */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding:0;
+  color: #333;
+}
+
+/* Global Headings */
+h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+/* 
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+} */
+/* Section Styling (Except Hero) */
+section:not(.hero-banner) {
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Hero Banner */
+.hero-banner {
+  height: 100vh;
+  background: url('../main/images/main.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-banner .container {
+  z-index: 2;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #ddd;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Project & Client Cards */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card h3, .card h4 {
+  font-size: 1.25rem;
+  color: #111827;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+}
+
+input, button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.project-img {
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.project-card .card-body {
+  padding: 20px;
+}
+
+.project-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.project-card .card-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-top: 10px;
+}
+
+
+/* Client Cards - Static Layout */
+.client-card {
+  background: #ffffff;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.client-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.client-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+}
+
+.client-desc {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-top: 10px;
+}/* Stylish Section Headings */
+.section-heading {
+  margin: 60px 0 30px;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9ca3af; /* muted gray */
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Poppins', sans-serif;
+}
+.contact-wrapper {
+  background-color: #f9fafb;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  border: 1px solid #e5e7eb;
+}
+
+.contact-form input {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.contact-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.newsletter-section {
+  padding: 80px 0;
+  background: #f1f5f9;
+}
+
+.newsletter-box {
+  background: #ffffff;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid #e2e8f0;
+}
+
+.newsletter-box h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #1e293b;
+}
+
+.newsletter-box p {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.newsletter-box input[type="email"] {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  max-width: 350px;
+}
+
+.newsletter-box button {
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+}

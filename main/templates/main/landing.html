@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Client Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+</head>
+
+<body>
+   <header>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">CarMod</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#newsletter">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <section class="hero-banner d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h1 class="hero-title">Crafted Mods.<br><span class="text-primary">Driven Differently.</span></h1>
+                    <p class="hero-subtitle">We don't modify cars. We redefine them.</p>
+                    <a href="#projects" class="btn btn-outline-light mt-3">Explore Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-heading text-center">
+                <p class="section-subtitle">WHAT WE’VE BUILT</p>
+                <div class="section-line"></div>
+                <h2 class="section-title">Our Finest Modifications</h2>
+            </div>
+            <div class="row justify-content-center">
+                {% for project in projects %}
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card project-card h-100 border-0 shadow">
+                        <img src="{{ project.image.url }}" class="card-img-top project-img" alt="{{ project.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ project.name }}</h5>
+                            <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-center">No projects available.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Happy Clients - No Carousel, All in One Line -->
+    <section id="clients">
+        <div class="container">
+            <div class="section-heading text-center">
+                <p class="section-subtitle">WHO TRUSTS US</p>
+                <div class="section-line"></div>
+                <h2 class="section-title">Legendary Clients</h2>
+
+            </div>
+            <div class="row justify-content-center">
+                {% for client in clients %}
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up"
+                    data-aos-delay="{{ forloop.counter0|add:'1' }}00">
+                    <div class="client-card text-center p-3 shadow-sm h-100">
+                        <img src="{{ client.image.url }}" class="client-img mb-2" alt="{{ client.name }}">
+                        <h5>{{ client.name }}</h5>
+                        <p class="text-muted" style="font-size: 0.85rem;"><em>{{ client.designation }}</em></p>
+                        <p class="client-desc">{{ client.description|truncatewords:18 }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-center">No clients found.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <div class="section-heading text-center">
+            <p class="section-subtitle">GET IN TOUCH</p>
+            <div class="section-line"></div>
+            <h2 class="section-title">Start Your Mod Journey</h2>
+        </div>
+
+        <div class="container">
+            <div class="row align-items-center contact-wrapper shadow-lg rounded-4 overflow-hidden">
+
+                <!-- Left Side Image -->
+                <div class="col-md-6 d-none d-md-block p-0">
+                    <img src="{% static 'main/images/contact.jpg' %}" alt="Contact Us"
+                        class="img-fluid h-100 w-100 object-fit-cover">
+                </div>
+
+                <!-- Right Side Form -->
+                <div class="col-md-6 p-5 bg-white">
+                    <h2 class="mb-4">Get in Touch</h2>
+                    <form method="POST" action="{% url 'submit_contact' %}" class="contact-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="city" class="form-control" placeholder="City" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-box text-center p-5 shadow rounded-4">
+                <h2 class="mb-3">Stay in the Loop</h2>
+                <p class="text-muted mb-4">Subscribe to our newsletter for exclusive updates on builds, upgrades & more.
+                </p>
+
+                <form method="POST" action="{% url 'subscribe' %}"
+                    class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+                    {% csrf_token %}
+                    <input type="email" name="email" class="form-control w-100 w-md-auto" placeholder="Enter your email"
+                        required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+<footer class="site-footer bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <h4 class="mb-1">CarMod</h4>
+    <p class="mb-2 small">Crafting performance. Shaping identity.</p>
+    <p class="small mb-0">&copy; {{ now.year }} CarMod. All rights reserved.</p>
+  </div>
+</footer>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
